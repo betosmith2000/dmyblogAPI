@@ -36,7 +36,7 @@ namespace dMyBlogAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(c =>
-               c.AddPolicy(MyAllowSpecificOrigins, b => { b.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4201", "https://www.dmyblog.co"); })
+               c.AddPolicy(MyAllowSpecificOrigins, b => { b.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4201", "http://localhost:44332", "https://www.dmyblog.co", "https://browser.blockstack.org"); })
             );
 
             services.AddScoped<PostService>();
@@ -109,7 +109,7 @@ namespace dMyBlogAPI
 
 
             //});
-
+           
             app.UseMvcWithDefaultRoute().UseRewriter(new RewriteOptions().AddRedirectToWwwPermanent().AddRedirectToHttpsPermanent());
         }
     }
